@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import ThankYouCard from '../ThankYouCard/ThankYouCard';
 
 const Dashboard = () => {
     const [allThanks, setAllThanks] = useState([]);
@@ -13,7 +14,13 @@ const Dashboard = () => {
     return (
         <div>
             <h2 className="m-3 pb-4 font-weight-bolder">Home</h2>
-            {allThanks && allThanks.map((thanks, index) => <div key={index}><a href={`thanks/${thanks.id}`}>{JSON.stringify(thanks)}</a><br/></div>)}
+            {allThanks && allThanks.map((thanks, index) =>
+             <div key={index}>
+                <a href={`thanks/${thanks.id}`}>
+                    <ThankYouCard recipient={thanks.recipient} message={thanks.message} image="../assets/thanks.jpg"/>
+                </a>
+                <br/>
+            </div>)}
         </div>
     );
 };

@@ -25,7 +25,7 @@ export default class ThanksReceiver extends Component {
             <div className="ThanksComposer">
                 <span>To {this.state.thanks.recipient}</span><br/>
                 <span>{this.state.thanks.message}</span><br/>
-                {this.state.image && <img src={`data:image/${this.state.image.type};base64,${this.state.image.decodedContent}`}/>}
+                {this.state.image && <img src={`data:image/${this.state.image.type};base64,${this.state.image.decodedContent}`} alt="Thank You!"/>}
             </div>
         )
     };
