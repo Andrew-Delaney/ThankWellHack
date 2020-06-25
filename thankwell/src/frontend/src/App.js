@@ -12,7 +12,7 @@ const App = () => {
     return (
         <Router>
             <div className="App d-flex flex-column justify-content-between">
-                <div>
+                <div className="mb-4">
                     <HeaderBar/>
                     <div className="container container-fluid">
                         <Switch>

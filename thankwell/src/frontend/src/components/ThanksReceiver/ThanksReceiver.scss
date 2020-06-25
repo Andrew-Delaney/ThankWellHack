@@ -1,0 +1,21 @@
+@import "../../variables.scss";
+
+.recipient-name {
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.message-content {
+    font-style: italic;
+    font-size: 50px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.image {
+    text-align: center;
+    border-radius: 20px;
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+}
