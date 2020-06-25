@@ -1,15 +1,17 @@
+@import "../../variables.scss";
+
 .HeaderBar {
     display: flex;
     justify-content: flex-end;
 
-    a {
+    &-link {
         text-decoration: none;
-        color: black;
+        color: $dark;
         font-size: larger;
         padding: 0.75rem 0.75rem;
     }
 
-    div {
+    &-icon {
         padding: 0.75rem;
 
         svg {

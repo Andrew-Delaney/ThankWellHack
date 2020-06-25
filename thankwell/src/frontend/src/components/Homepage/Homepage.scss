@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+
+Homepage {
+    @media(max-width: $breakpoint-small) {
+        padding: 0;
+    }
+
+    @media(min-width: $breakpoint-small) {
+        padding: 0 5%;
+    }
+
+    @media(min-width: $breakpoint-medium) {
+        padding: 0 10%;
+    }
+}

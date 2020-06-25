@@ -7,11 +7,12 @@ import "./HeaderBar.scss";
 
 var HeaderBar = () => (
     <div className="HeaderBar">
-        <Link to="/">Home</Link>
-        <Link to="/groups">Groups</Link>
-        <Link to="/messages">Messages</Link>
-        <div><Bell/></div>
-        <div><User/></div>
-    </div>);
+        <Link className="HeaderBar-link" to="/">Home</Link>
+        <Link className="HeaderBar-link" to="/groups">Groups</Link>
+        <Link className="HeaderBar-link" to="/messages">Messages</Link>
+        <div className="HeaderBar-icon"><Bell/></div>
+        <div className="HeaderBar-icon"><User/></div>
+    </div>
+);
 
 export default HeaderBar;

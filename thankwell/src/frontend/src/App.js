@@ -5,18 +5,21 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Homepage from './components/Homepage/Homepage';
+
+import "./App.scss";
 
 var App = () => {
   return (
     <Router>
       <div className="App">
-        <HeaderBar/>
+          <HeaderBar/>
+          <Switch>
+            <Route path="/"><Homepage/></Route>
+            <Route path="/messages"></Route>
+            <Route path="/groups"></Route>
+          </Switch>
       </div>
-      <Switch>
-        <Route path="/"></Route>
-        <Route path="/messages"></Route>
-        <Route path="/groups"></Route>
-      </Switch>
     </Router>
   );
 }

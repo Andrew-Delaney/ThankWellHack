@@ -1,0 +1,25 @@
+@import "../../variables.scss";
+
+.ThanksComposer {
+
+    &-input {
+        display: flex;
+        flex-direction: column;
+        padding: 0 2rem;
+        width: 30%;
+
+        &-text {
+            margin-top: 0.75rem;
+            height: 4rem;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border: 2px solid $primary;
+        }
+
+        &-submit {
+            align-self: flex-end;
+            width: 25%;
+            padding-top: 0.75rem;
+        }
+    }
+}
