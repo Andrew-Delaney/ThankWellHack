@@ -16,10 +16,22 @@
             height: 10rem;
         }
 
-        &-submit {
-            align-self: flex-end;
-            width: 25%;
-            padding-top: 0.75rem;
+        &-lower {
+            display: flex;
+
+            &-icon {
+                width: 35px;
+                height: 35px;
+                margin: 0.5rem;
+                cursor: pointer;
+            }
+
+            &-submit {
+                align-self: flex-end;
+                width: 25%;
+                padding-top: 0.75rem;
+                margin-left: auto;
+            }
         }
     }
 }

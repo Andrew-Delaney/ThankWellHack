@@ -1,16 +1,30 @@
-import React, {useState} from 'react';
-import "./ThanksComposer.scss";
+import React, { useState } from 'react';
 import ActionButton from '../ActionButton/ActionButton';
+import { Image, Film } from 'react-feather';
+
+import "./ThanksComposer.scss";
 
 const ThanksComposer = () => {
     const [textInput, setTextInput] = useState("");
     const [recipient, setRecipient] = useState("");
+    const [fileSelector] = useState(() => {
+        var fileSelector = document.createElement('input');
+        fileSelector.setAttribute('type', 'file');
+        fileSelector.setAttribute('id', 'testFileSelector');
+        fileSelector.onchange = (e) => console.log(e.target.files[0]);
+        return fileSelector;
+    });
 
-    function submit() {
+    var submit = () => {
         fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST"})
             .then(response => response.json())
             .then(data => console.log(data));
-    }
+    };
+
+    var handleFileSelect = (e) => {
+        e.preventDefault();
+        fileSelector.click();
+    };
 
     return (
         <div className="ThanksComposer">
@@ -29,11 +43,15 @@ const ThanksComposer = () => {
                     placeholder="Personalise your thank you message."
                 >
                 </textarea>
-                <div className="ThanksComposer-input-submit">
-                    <ActionButton
-                        buttonText="Thank"
-                        onClick={() => submit()}
-                    />
+                <div className="ThanksComposer-input-lower">
+                    <Image className="ThanksComposer-input-lower-icon" onClick={handleFileSelect}/>
+                    <Film className="ThanksComposer-input-lower-icon" onClick={handleFileSelect}/>
+                    <div className="ThanksComposer-input-lower-submit">
+                        <ActionButton
+                            buttonText="Thank"
+                            onClick={() => submit()}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
