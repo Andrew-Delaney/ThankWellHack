@@ -1,10 +1,9 @@
 import React from 'react';
-import ThanksComposer from '../ThanksComposer/ThanksComposer';
 import Dashboard from "../Dashboard/Dashboard";
 
-const Homepage = ({props}) => (
-    <div className="Homepage container container-fluid">
-        <props.component/>
+const Homepage = () => (
+    <div className="Homepage">
+        <Dashboard/>
     </div>
 );
 
