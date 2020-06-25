@@ -5,6 +5,8 @@ import Homepage from './components/Homepage/Homepage';
 import ThanksReceiver from "./components/ThanksReceiver/ThanksReceiver";
 
 import "./App.scss";
+import ThanksComposer from "./components/ThanksComposer/ThanksComposer";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 const App = () => {
     return (
@@ -15,7 +17,8 @@ const App = () => {
                     <Route path="/messages"/>
                     <Route path="/groups"/>
                     <Route path="/thanks/:id" component={ThanksReceiver}/>
-                    <Route path="/"><Homepage/></Route>
+                    <Route path="/give-thanks"><Homepage props={{component: ThanksComposer}}/></Route>
+                    <Route path="/"><Homepage props={{component: Dashboard}}/></Route>
                 </Switch>
             </div>
         </Router>
