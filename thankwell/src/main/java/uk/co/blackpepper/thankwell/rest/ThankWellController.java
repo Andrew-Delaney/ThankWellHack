@@ -17,8 +17,8 @@ public class ThankWellController {
 
     @PostMapping("thanks")
     @ResponseStatus(HttpStatus.CREATED)
-    public Thanks createThanks(@RequestBody String message) {
-        return thankWellService.createThanks(message);
+    public Thanks createThanks(@RequestParam String message, @RequestParam String recipient) {
+        return thankWellService.createThanks(message, recipient);
     }
 
     @GetMapping("thanks/{id}")

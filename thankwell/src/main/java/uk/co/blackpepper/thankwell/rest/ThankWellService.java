@@ -2,11 +2,12 @@ package uk.co.blackpepper.thankwell.rest;
 
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class ThankWellService {
     private ThankWellRepository thankWellRepository;
 
@@ -14,8 +15,8 @@ public class ThankWellService {
         this.thankWellRepository = thankWellRepository;
     }
 
-    public Thanks createThanks(String message) {
-        Thanks createdEntity = new Thanks(UUID.randomUUID(), message);
+    public Thanks createThanks(String message, String recipient) {
+        Thanks createdEntity = new Thanks(UUID.randomUUID(), message, recipient);
         thankWellRepository.save(createdEntity);
         return createdEntity;
     }
