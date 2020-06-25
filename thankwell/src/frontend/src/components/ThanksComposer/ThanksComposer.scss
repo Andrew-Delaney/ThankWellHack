@@ -1,19 +1,19 @@
 @import "../../variables.scss";
 
 .ThanksComposer {
+    .recipient-input {
+        height: 20px;
+        width: 30%;
+    }
 
     &-input {
         display: flex;
         flex-direction: column;
         padding: 0 2rem;
-        width: 30%;
 
         &-text {
             margin-top: 0.75rem;
-            height: 4rem;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            border: 2px solid $primary;
+            height: 10rem;
         }
 
         &-submit {
@@ -22,4 +22,10 @@
             padding-top: 0.75rem;
         }
     }
+}
+
+.thanks-border {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 2px solid $primary;
 }

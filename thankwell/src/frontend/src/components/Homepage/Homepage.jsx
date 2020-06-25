@@ -1,8 +1,8 @@
 import React from 'react';
 import ThanksComposer from '../ThanksComposer/ThanksComposer';
 
-var Homepage = () => (
-    <div className="Homepage">
+const Homepage = () => (
+    <div className="Homepage container container-fluid">
         <ThanksComposer/>
     </div>
 );
