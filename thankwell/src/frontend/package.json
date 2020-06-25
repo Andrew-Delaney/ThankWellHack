@@ -16,7 +16,7 @@
   "proxy": "http://localhost:8080/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && rm -rf ../main/resources/static/ && cp -r build/* ../main/resources/static",
+    "build": "react-scripts build && rm -rf ../main/resources/static/* && cp -r build/* ../main/resources/static",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
