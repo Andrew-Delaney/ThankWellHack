@@ -7,21 +7,31 @@ import "./ThanksComposer.scss";
 const ThanksComposer = () => {
     const [textInput, setTextInput] = useState("");
     const [recipient, setRecipient] = useState("");
+    const [fileSelectorValue, setFileSelectorValue] = useState(null);
     const [fileSelector] = useState(() => {
-        var fileSelector = document.createElement('input');
+        const fileSelector = document.createElement('input');
         fileSelector.setAttribute('type', 'file');
         fileSelector.setAttribute('id', 'testFileSelector');
-        fileSelector.onchange = (e) => console.log(e.target.files[0]);
+        fileSelector.onchange = (e) => setFileSelectorValue(e.target.files[0]);
         return fileSelector;
     });
 
-    var submit = () => {
+    const submit = () => {
+        if (fileSelectorValue !== null) {
+            const data = new FormData();
+            data.append('image', fileSelectorValue);
+
+            fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST", body: data})
+                .then(response => response.json())
+                .then(data => console.log(data));
+        }
+
         fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST"})
             .then(response => response.json())
             .then(data => console.log(data));
     };
 
-    var handleFileSelect = (e) => {
+    const handleFileSelect = (e) => {
         e.preventDefault();
         fileSelector.click();
     };
