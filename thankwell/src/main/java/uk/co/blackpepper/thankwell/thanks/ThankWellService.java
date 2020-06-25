@@ -1,6 +1,7 @@
-package uk.co.blackpepper.thankwell.rest;
+package uk.co.blackpepper.thankwell.thanks;
 
 import org.springframework.stereotype.Service;
+import uk.co.blackpepper.thankwell.rest.NotFoundException;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -15,8 +16,8 @@ public class ThankWellService {
         this.thankWellRepository = thankWellRepository;
     }
 
-    public Thanks createThanks(String message, String recipient) {
-        Thanks createdEntity = new Thanks(UUID.randomUUID(), message, recipient);
+    public Thanks createThanks(String message, String recipient, UUID imageId) {
+        Thanks createdEntity = new Thanks(UUID.randomUUID(), message, recipient, imageId);
         thankWellRepository.save(createdEntity);
         return createdEntity;
     }

@@ -1,4 +1,4 @@
-package uk.co.blackpepper.thankwell.rest;
+package uk.co.blackpepper.thankwell.thanks;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

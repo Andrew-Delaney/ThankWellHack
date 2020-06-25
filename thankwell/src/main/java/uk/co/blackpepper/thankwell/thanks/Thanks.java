@@ -1,4 +1,5 @@
-package uk.co.blackpepper.thankwell.rest;
+package uk.co.blackpepper.thankwell.thanks;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,15 +11,17 @@ public class Thanks {
     private UUID id;
     private String message;
     private String recipient;
+    private UUID imageId;
 
     public Thanks() {
         // for JPA
     }
 
-    public Thanks(UUID id, String message, String recipient) {
+    public Thanks(UUID id, String message, String recipient, UUID imageId) {
         this.id = id;
         this.message = message;
         this.recipient = recipient;
+        this.imageId = imageId;
     }
 
     public UUID getId() {
@@ -43,5 +46,13 @@ public class Thanks {
 
     public void setRecipient(String recipient) {
         this.recipient = recipient;
+    }
+
+    public UUID getImageId() {
+        return imageId;
+    }
+
+    public void setImage(UUID imageId) {
+        this.imageId = imageId;
     }
 }
