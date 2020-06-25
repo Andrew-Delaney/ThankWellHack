@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import "./HeaderBar.scss";
 
-var HeaderBar = () => (
+const HeaderBar = () => (
     <div className="HeaderBar">
         <Link className="HeaderBar-link" to="/">Home</Link>
         <Link className="HeaderBar-link" to="/give-thanks">Give Thanks</Link>

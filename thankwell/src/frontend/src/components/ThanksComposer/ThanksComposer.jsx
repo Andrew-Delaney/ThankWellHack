@@ -24,11 +24,11 @@ const ThanksComposer = () => {
             fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST", body: data})
                 .then(response => response.json())
                 .then(data => console.log(data));
+        } else {
+            fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST"})
+                .then(response => response.json())
+                .then(data => console.log(data));
         }
-
-        fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST"})
-            .then(response => response.json())
-            .then(data => console.log(data));
     };
 
     const handleFileSelect = (e) => {

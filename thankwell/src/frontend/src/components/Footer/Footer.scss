@@ -1,0 +1,31 @@
+@import "../../variables.scss";
+
+.Footer {
+    height: 20%;
+    color: white;
+    background-color: $dark-blue;
+    border-top: 1px solid black;
+
+    .icons {
+        padding-top: 1rem;
+        display: flex;
+        width: 40%;
+        justify-content: space-between;
+    }
+
+    .links {
+        padding-top: 5em;
+        vertical-align: middle
+    }
+
+    &-link {
+        height: 20px;
+        padding-right: 2em;
+        color: white;
+        text-decoration: none;
+    }
+
+    &-link:hover {
+        color: white;
+    }
+}
