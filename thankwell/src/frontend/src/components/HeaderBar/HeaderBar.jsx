@@ -1,14 +1,15 @@
 import React from 'react';
 import { Bell } from 'react-feather';
 import { User } from 'react-feather';
+import { Link } from 'react-router-dom';
 
 import "./HeaderBar.scss";
 
 var HeaderBar = () => (
     <div className="HeaderBar">
-        <a href="">Home</a>
-        <a href="">Groups</a>
-        <a href="">Messages</a>
+        <Link to="/">Home</Link>
+        <Link to="/groups">Groups</Link>
+        <Link to="/messages">Messages</Link>
         <div><Bell/></div>
         <div><User/></div>
     </div>);
