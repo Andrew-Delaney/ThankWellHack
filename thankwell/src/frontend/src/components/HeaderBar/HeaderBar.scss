@@ -2,8 +2,23 @@
 
 .HeaderBar {
     display: flex;
+    margin-bottom: 3em;
     justify-content: flex-end;
     border-bottom: 1px solid #2d2d2d;
+
+    .logo-link {
+        margin-left: 20%;
+    }
+
+    .logo {
+        margin-top: 0.6em;
+        width: 160px;
+        height: 28px;
+    }
+
+    .links {
+        margin-right: 15%;
+    }
 
     &-link {
         text-decoration: none;
