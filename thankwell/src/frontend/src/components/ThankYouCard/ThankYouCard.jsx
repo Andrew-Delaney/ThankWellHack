@@ -24,7 +24,7 @@ var ThankYouCard = ({ imageId, message, recipient, id }) => {
 
     return (
     <div className="ThankYouCard col-12 col-sm-10 col-md-6 col-lg-4">
-        <Link to={`/thanks/${id}`}>
+        <Link to={`/thanks/${id}`} style={{ textDecoration: 'none' }}>
             <img className="ThankYouCard-image" src={image} alt="Thank you!"></img>
             <div className="ThankYouCard-text">
                 <h5 className="ThankYouCard-text-recipient">{recipient}</h5>
