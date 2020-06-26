@@ -1,0 +1,16 @@
+@import "../../variables.scss";
+
+.ActivityFeed {
+    h2 {
+        margin-left: 2rem;
+    }
+
+    &-cards {
+        border: 2px solid $dark;
+        margin-right: 2rem;
+        display: flex;
+        text-decoration: none !important;
+        max-height: 50rem;
+        overflow-y: scroll;
+    }
+}

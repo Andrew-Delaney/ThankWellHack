@@ -1,9 +1,12 @@
 import React from 'react';
-import Dashboard from "../Dashboard/Dashboard";
+import ActivityFeed from "../ActivityFeed/ActivityFeed";
 
 const Homepage = () => (
-    <div className="Homepage">
-        <Dashboard/>
+    <div className="Homepage row">
+        <div className="col-6"></div>
+        <div className="col-6">
+            <ActivityFeed/>
+        </div>
     </div>
 );
 

@@ -5,12 +5,14 @@
     color: white;
     background-color: $dark;
     border-top: 1px solid black;
+    padding-bottom: 2rem;
 
     .icons {
         padding-top: 1rem;
         display: flex;
         width: 40%;
         justify-content: space-between;
+        cursor: pointer;
     }
 
     .links {
