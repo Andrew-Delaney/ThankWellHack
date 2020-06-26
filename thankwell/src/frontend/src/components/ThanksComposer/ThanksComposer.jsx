@@ -68,7 +68,9 @@ const ThanksComposer = () => {
                     <span className="recipient-input pr-2 font-weight-bold">To:</span>
                     <input type="text" className="recipient-input thanks-border"
                            value={recipient}
-                           onChange={input => setRecipient(input.target.value)}/>
+                           onChange={input => setRecipient(input.target.value)}
+                           placeholder="Recipient"
+                    />
                 </label>
                 <textarea
                     id="thanks-input"
