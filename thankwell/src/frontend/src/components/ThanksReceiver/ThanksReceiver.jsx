@@ -30,7 +30,7 @@ var ThanksReceiver = ({ match }) =>  {
                     <span>{thanks.message}</span>
                 </div>
                 <div className="d-flex justify-content-center align-items-center">
-                {image && image.decodedContent && <img className="image"src={image} alt="Thank You!"/>}
+                {image && <img className="image" src={image} alt="Thank You!"/>}
                 </div>
             </div>
             <h1 className="recipient-name pb-4 pt-2">Thank you.</h1>

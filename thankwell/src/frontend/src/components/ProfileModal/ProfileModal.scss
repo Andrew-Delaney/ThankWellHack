@@ -1,0 +1,16 @@
+@import "../../variables.scss";
+
+.ProfileModal {
+    position: fixed;
+    margin-top: 56px;
+    margin-right: 15%;
+    border: 2px solid $primary;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    &-edit, &-exit {
+        text-decoration: none !important;
+        cursor: pointer;
+    }
+}

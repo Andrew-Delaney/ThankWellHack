@@ -4,9 +4,11 @@ import {Link} from 'react-router-dom';
 import logo from "../../assets/logo.png";
 import "./HeaderBar.scss";
 import Notifications from '../Notifications/Notifications';
+import ProfileModal from '../ProfileModal/ProfileModal';
 
 const HeaderBar = () => {
     const [notificationModalActive, setNotificationModalActive] = useState(false);
+    const [userProfileModalActive, setUserProfileModalActive] = useState(false);
 
     return (
     <div className="HeaderBar">
@@ -18,10 +20,11 @@ const HeaderBar = () => {
                 <Link className="HeaderBar-link" to="/groups">Groups</Link>
                 <Link className="HeaderBar-link" to="/messages">Messages</Link>
                 <div className="HeaderBar-icon"><Bell onClick={() => setNotificationModalActive(!notificationModalActive)}/></div>
-                <div className="HeaderBar-icon"><User/></div>
+                <div className="HeaderBar-icon"><User onClick={() => setUserProfileModalActive(!userProfileModalActive)}/></div>
             </div>
         </div>
         {notificationModalActive && <Notifications/>}
+        {userProfileModalActive && <ProfileModal/>}
     </div>
 )};
 

@@ -5,25 +5,27 @@ import thanksImg from "../../assets/thanks.jpg";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
-    const [allThanks, setAllThanks] = useState([]);
+    const [allThanks, setAllThanks] = useState(null);
     const [imagesMap, setImagesMap] = useState(new Map());
 
     useEffect( () => {
-        var getAll = async () => {
-            var response = await fetch(`/api/all`);
-            response = await response.json();
-            setAllThanks(response);
+        if (allThanks == null) {
+            var getAll = async () => {
+                var response = await fetch(`/api/all`);
+                response = await response.json();
+                setAllThanks(response);
 
-            response.map(async datum => {
-                var imageData = await fetch(`/api/image/${datum.imageId}`);
-                imageData = await imageData.json();
+                response.map(async datum => {
+                    var imageData = await fetch(`/api/image/${datum.imageId}`);
+                    imageData = await imageData.json();
 
-                var newMap = new Map(imagesMap);
-                newMap[datum.id] = `data:image/${imageData.type};base64,${imageData.decodedContent}`;
-                setImagesMap(newMap);
+                    var newMap = new Map(imagesMap);
+                    newMap[datum.id] = `data:image/${imageData.type};base64,${imageData.decodedContent}`;
+                    setImagesMap(newMap);
             })
         }
         getAll();
+        }
     });
 
     return (
