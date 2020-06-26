@@ -4,10 +4,12 @@ import HeaderBar from './components/HeaderBar/HeaderBar';
 import Homepage from './components/Homepage/Homepage';
 import ThanksReceiver from "./components/ThanksReceiver/ThanksReceiver";
 import GiveThanks from './components/GiveThanks/GiveThanks';
-
-import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import UserProfile from './components/UserProfile/UserProfile';
+
+import "./App.scss";
+import MyGroups from './components/MyGroups/MyGroups';
+
 
 const App = () => {
     return (
@@ -22,6 +24,7 @@ const App = () => {
                             <Route path="/thanks/:id" component={ThanksReceiver}/>
                             <Route path="/give-thanks"><GiveThanks/></Route>
                             <Route path="/profile"><UserProfile/></Route>
+                            <Route path="/usergroups"><MyGroups/></Route>
                             <Route path="/"><Homepage/></Route>
                         </Switch>
                     </div>

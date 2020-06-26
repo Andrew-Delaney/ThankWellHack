@@ -5,11 +5,11 @@ import MyGroups from '../MyGroups/MyGroups';
 
 const Homepage = () => (
     <div className="Homepage row">
-        <div className="Homepage-left col-6">
+        <div className="Homepage-left col-12 col-md-6">
             <ThanksComposer/>
             <MyGroups/>
         </div>
-        <div className="col-6">
+        <div className="col-12 col-md-6">
             <ActivityFeed/>
         </div>
     </div>

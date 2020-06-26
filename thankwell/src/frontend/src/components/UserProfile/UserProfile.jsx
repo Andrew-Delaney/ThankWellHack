@@ -38,8 +38,10 @@ var UserProfile = () => {
 
     return (
         <div className="UserProfile">
-            {profilePicture === "" && <label for="pictureChooser">Choose your profile picture:</label>}
-            {profilePicture !== "" ? <img className="UserProfile-picture" alt="profile"></img> : <User id="pictureChooser" className="UserProfile-picture-selector" onClick={handleFileSelect}/>}
+            <div className="UserProfile-image">
+            {profilePicture === "" && <label for="pictureChooser" className="UserProfile-image-label">Choose your profile picture:</label>}
+            {profilePicture !== "" ? <img className="UserProfile-image-picture" alt="profile"></img> : <User id="pictureChooser" className="UserProfile-image-picture-selector" onClick={handleFileSelect}/>}
+            </div>
             <div className="UserProfile-form">
                 <label for="name">Name: </label>
                 <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)}/>

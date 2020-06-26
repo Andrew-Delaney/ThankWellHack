@@ -16,4 +16,4 @@ var MyGroups = () => (
     </div>
 );
 
-export default MyGroups
+export default MyGroups;

@@ -2,18 +2,26 @@
 
 .UserProfile {
     width: 50%;
+    margin-left: 2rem;
+    &-image {
+        display: flex ;
+        flex-direction: column;
 
-    &-picture-selector {
-        width: 400px;
-        height: 400px;
-        cursor: pointer;
-        border: 3px solid $dark;
-        border-radius: 1rem;
+
+        &-picture-selector {
+            width: 400px;
+            height: 400px;
+            cursor: pointer;
+            border: 3px solid $dark;
+            border-radius: 1rem;
+        }
     }
+
 
     &-form {
         display: flex;
         flex-direction: column;
+        margin-top: 2rem;
 
         input {
             border-radius: 0.5rem;
