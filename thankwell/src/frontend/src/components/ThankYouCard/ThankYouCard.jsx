@@ -5,7 +5,6 @@ import thanksImg from "../../assets/thanks.jpg";
 
 import "./ThankYouCard.scss";
 
-
 var ThankYouCard = ({ imageId, message, recipient, id }) => {
     const [image, setImage] = useState(null);
 
@@ -21,7 +20,7 @@ var ThankYouCard = ({ imageId, message, recipient, id }) => {
         else {
             setImage(thanksImg);
         }
-    }, []);
+    }, [imageId]);
 
     return (
     <div className="ThankYouCard col-12 col-sm-10 col-md-6 col-lg-4">

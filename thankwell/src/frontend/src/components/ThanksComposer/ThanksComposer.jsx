@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import ActionButton from '../ActionButton/ActionButton';
 import { Image, Film } from 'react-feather';
 import Modal from '@material-ui/core/Modal';
@@ -20,6 +21,8 @@ const ThanksComposer = () => {
         return fileSelector;
     });
     const [open, setOpen] = React.useState(false);
+
+    const location = useLocation();
 
     const handleOpen = () => {
         setOpen(true);
@@ -104,7 +107,17 @@ const ThanksComposer = () => {
                         <h2 className="font-weight-bold">Thank you for thanking.</h2>
                         <span className="mb-2">Your personal thank you has been saved.</span>
                         <div className="mt-4">
-                            <Link to="/"><button className="home-button">Home</button></Link>
+                            {
+                            location.pathname !== "/" ?
+                            <Link to="/">
+                                <button className="home-button">
+                                    Home
+                                </button>
+                            </Link> :
+                            <button className="home-button" onClick={() => window.location.reload(false)}>
+                                Close
+                            </button>
+                            }
                             <ActionButton
                                 buttonText="Thank again"
                                 onClick={() => reset()}
