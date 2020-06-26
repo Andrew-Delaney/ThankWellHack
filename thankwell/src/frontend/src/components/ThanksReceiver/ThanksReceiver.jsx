@@ -12,7 +12,7 @@ var ThanksReceiver = ({ match }) =>  {
             response = await response.json();
             setThanks(response);
 
-            if (response.imageId !== undefined) {
+            if (response.imageId !== null) {
                 var imageData = await fetch(`/api/image/${response.imageId}`);
                 imageData = await imageData.json();
                 setImage(`data:image/${imageData.type};base64,${imageData.decodedContent}`);
