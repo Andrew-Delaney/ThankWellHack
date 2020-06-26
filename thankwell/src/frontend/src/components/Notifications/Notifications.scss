@@ -1,0 +1,14 @@
+@import "../../variables.scss";
+
+.Notifications {
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;
+    margin-right: 17.5%;
+    width: 30%;
+    max-height: 340px;
+    overflow-y: scroll;
+
+    position: fixed;
+    border: 2px solid $primary;
+}
