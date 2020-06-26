@@ -1,0 +1,25 @@
+@import "../../variables.scss";
+
+.UserProfile {
+    width: 50%;
+
+    &-picture-selector {
+        width: 400px;
+        height: 400px;
+        cursor: pointer;
+        border: 3px solid $dark;
+        border-radius: 1rem;
+    }
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+
+        input {
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            border: 2px solid $primary;
+            margin-bottom: 2rem;
+        }
+    }
+}

@@ -24,7 +24,7 @@ const HeaderBar = () => {
             </div>
         </div>
         {notificationModalActive && <Notifications/>}
-        {userProfileModalActive && <ProfileModal/>}
+        {userProfileModalActive && <ProfileModal modalToggle={() => setUserProfileModalActive(false)}/>}
     </div>
 )};
 

@@ -7,6 +7,7 @@ import GiveThanks from './components/GiveThanks/GiveThanks';
 
 import "./App.scss";
 import Footer from "./components/Footer/Footer";
+import UserProfile from './components/UserProfile/UserProfile';
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                             <Route path="/groups"/>
                             <Route path="/thanks/:id" component={ThanksReceiver}/>
                             <Route path="/give-thanks"><GiveThanks/></Route>
+                            <Route path="/profile"><UserProfile/></Route>
                             <Route path="/"><Homepage/></Route>
                         </Switch>
                     </div>
