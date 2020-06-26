@@ -1,43 +1,62 @@
 @import "../../variables.scss";
 
 .ThanksComposer {
-    .recipient-input {
-        height: 20px;
-        width: 30%;
+  .recipient-input {
+    height: 20px;
+    width: 30%;
+  }
+
+  &-input {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+
+    &-text {
+      margin-top: 0.75rem;
+      height: 10rem;
     }
 
-    &-input {
-        display: flex;
-        flex-direction: column;
-        padding: 0 2rem;
+    &-lower {
+      display: flex;
 
-        &-text {
-            margin-top: 0.75rem;
-            height: 10rem;
-        }
+      &-icon {
+        width: 35px;
+        height: 35px;
+        margin: 0.5rem;
+        cursor: pointer;
+      }
 
-        &-lower {
-            display: flex;
-
-            &-icon {
-                width: 35px;
-                height: 35px;
-                margin: 0.5rem;
-                cursor: pointer;
-            }
-
-            &-submit {
-                align-self: flex-end;
-                width: 25%;
-                padding-top: 0.75rem;
-                margin-left: auto;
-            }
-        }
+      &-submit {
+        align-self: flex-end;
+        width: 25%;
+        padding-top: 0.75rem;
+        margin-left: auto;
+      }
     }
+  }
 }
 
 .thanks-border {
-    border-radius: 0.5rem;
-    padding: 1rem;
-    border: 2px solid $primary;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 2px solid $primary;
+}
+
+.thanks-modal {
+  background-color: white;
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 4em;
+  width: 40%;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.home-button {
+  background-color: $primary;
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 10PX;
 }

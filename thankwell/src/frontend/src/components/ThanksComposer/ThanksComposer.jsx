@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import ActionButton from '../ActionButton/ActionButton';
 import { Image, Film } from 'react-feather';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import {Link} from 'react-router-dom';
 
 import "./ThanksComposer.scss";
 
@@ -15,19 +19,39 @@ const ThanksComposer = () => {
         fileSelector.onchange = (e) => setFileSelectorValue(e.target.files[0]);
         return fileSelector;
     });
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const reset = () => {
+        handleClose();
+        setTextInput("");
+        setRecipient("");
+        setFileSelectorValue(null);
+    };
 
     const submit = () => {
-        if (fileSelectorValue !== null) {
-            const data = new FormData();
-            data.append('image', fileSelectorValue);
+        if (textInput !== "" && recipient !== "") {
+            if (fileSelectorValue !== null) {
+                const data = new FormData();
+                data.append('image', fileSelectorValue);
 
-            fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST", body: data})
-                .then(response => response.json())
-                .then(data => console.log(data));
-        } else {
-            fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST"})
-                .then(response => response.json())
-                .then(data => console.log(data));
+                fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST", body: data})
+                    .then(response => response.json())
+                    .then(data => console.log(data));
+            } else {
+                fetch(`/api/thanks?message=${textInput}&recipient=${recipient}`, {method: "POST"})
+                    .then(response => response.json())
+                    .then(data => console.log(data));
+            }
+
+            handleOpen();
         }
     };
 
@@ -43,6 +67,7 @@ const ThanksComposer = () => {
                 <label htmlFor="thanks-input">
                     <span className="recipient-input pr-2 font-weight-bold">To:</span>
                     <input type="text" className="recipient-input thanks-border"
+                           value={recipient}
                            onChange={input => setRecipient(input.target.value)}/>
                 </label>
                 <textarea
@@ -64,6 +89,28 @@ const ThanksComposer = () => {
                     </div>
                 </div>
             </div>
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{ timeout: 500 }}>
+                <Fade in={open}>
+                    <div className="thanks-modal">
+                        <h2 className="font-weight-bold">Thank you for thanking.</h2>
+                        <span className="mb-2">Your personal thank you has been saved.</span>
+                        <div className="mt-4">
+                            <Link to="/"><button className="home-button">Home</button></Link>
+                            <ActionButton
+                                buttonText="Thank again"
+                                onClick={() => reset()}
+                            />
+                        </div>
+                    </div>
+                </Fade>
+            </Modal>
         </div>
     );
 };
