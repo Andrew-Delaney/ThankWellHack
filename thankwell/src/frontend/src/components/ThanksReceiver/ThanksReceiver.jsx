@@ -7,19 +7,19 @@ var ThanksReceiver = ({ match }) =>  {
     const [image, setImage] = useState(null);
 
     useEffect(() => {
-        fetch(`/api/thanks/${match.params.id}`)
-            .then(response => response.json())
-            .then(data => {
-                setThanks(data);
-                return data;
-            })
-            .then(data => {
-                if (data.imageId !== undefined) {
-                    fetch(`/api/image/${data.imageId}`)
-                        .then(response => response.json())
-                        .then(data => setImage(data))
-                }
-            });
+        var getThanks = async () => {
+            var response = await fetch(`/api/thanks/${match.params.id}`)
+            response = await response.json();
+            setThanks(response);
+
+            if (response.imageId !== undefined) {
+                var imageData = await fetch(`/api/image/${response.imageId}`);
+                imageData = await imageData.json();
+                setImage(`data:image/${imageData.type};base64,${imageData.decodedContent}`);
+            }
+        }
+
+        getThanks();
     }, [match]);
 
     return (
@@ -30,7 +30,7 @@ var ThanksReceiver = ({ match }) =>  {
                     <span>{thanks.message}</span>
                 </div>
                 <div className="d-flex justify-content-center align-items-center">
-                {image && image.decodedContent && <img className="image"src={`data:image/${image.type};base64,${image.decodedContent}`}alt="Thank You!"/>}
+                {image && image.decodedContent && <img className="image"src={image} alt="Thank You!"/>}
                 </div>
             </div>
             <h1 className="recipient-name pb-4 pt-2">Thank you.</h1>

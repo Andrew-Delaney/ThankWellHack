@@ -9,19 +9,22 @@ const Dashboard = () => {
     const [imagesMap, setImagesMap] = useState(new Map());
 
     useEffect( () => {
-        fetch(`/api/all`)
-            .then(response => response.json())
-            .then(data => {setAllThanks(data); return data})
-            .then(data => data.map(datum =>
-                fetch(`/api/image/${datum.imageId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        var newMap = new Map(imagesMap);
-                        newMap[datum.id] = `data:image/${data.type};base64,${data.decodedContent}`;
-                        setImagesMap(newMap);
-                     })
-                ))
-    }, []);
+        var getAll = async () => {
+            var response = await fetch(`/api/all`);
+            response = await response.json();
+            setAllThanks(response);
+
+            response.map(async datum => {
+                var imageData = await fetch(`/api/image/${datum.imageId}`);
+                imageData = await imageData.json();
+
+                var newMap = new Map(imagesMap);
+                newMap[datum.id] = `data:image/${imageData.type};base64,${imageData.decodedContent}`;
+                setImagesMap(newMap);
+            })
+        }
+        getAll();
+    });
 
     return (
         <div className="Dashboard">
