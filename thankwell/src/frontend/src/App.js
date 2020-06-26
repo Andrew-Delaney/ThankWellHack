@@ -15,7 +15,7 @@ const App = () => {
             <div className="App d-flex flex-column justify-content-between">
                 <div className="mb-4">
                     <HeaderBar/>
-                    <div>
+                    <div className="mb-4 ml-5 mr-5">
                         <Switch>
                             <Route path="/messages"/>
                             <Route path="/groups"/>

@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 const Footer = () => (
     <div className="Footer w-100">
-        <div className="container-fluid container d-flex justify-content-around h-100">
+        <div className="d-flex justify-content-around h-100">
             <div className="pl-5">
                 <h4 className="mt-5">ThankWell</h4>
                 <h6>Send a personal thank you in the moment.</h6>
