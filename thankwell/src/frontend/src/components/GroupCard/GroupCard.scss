@@ -1,0 +1,25 @@
+@import "../../variables.scss";
+
+.GroupCard {
+    width: 10rem;
+    height: 20rem;
+    margin: 2rem;
+    background-color: $dark;
+
+    &-image {
+        width: 100%;
+        cursor: pointer;
+    }
+
+    &-name {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+        white-space: pre-wrap;
+        color: $light;
+        font-size: larger;
+        cursor: pointer;
+    }
+}

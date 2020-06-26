@@ -1,16 +1,19 @@
 @import "../../variables.scss";
 
 .ActivityFeed {
+    height: 92.8%;
+
     h2 {
         margin-left: 2rem;
     }
 
     &-cards {
         border: 2px solid $dark;
+        border-radius: 0.5rem;
         margin-right: 2rem;
         display: flex;
         text-decoration: none !important;
-        max-height: 50rem;
+        height: 100%;
         overflow-y: scroll;
     }
 }
