@@ -6,11 +6,21 @@ import "./Dashboard.scss";
 
 const Dashboard = () => {
     const [allThanks, setAllThanks] = useState([]);
+    const [imagesMap, setImagesMap] = useState(new Map());
 
     useEffect( () => {
         fetch(`/api/all`)
             .then(response => response.json())
-            .then(data => setAllThanks(data));
+            .then(data => {setAllThanks(data); return data})
+            .then(data => data.map(datum =>
+                fetch(`/api/image/${datum.imageId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        var newMap = new Map(imagesMap);
+                        newMap[datum.id] = `data:image/${data.type};base64,${data.decodedContent}`;
+                        setImagesMap(newMap);
+                     })
+                ))
     }, []);
 
     return (
@@ -19,8 +29,7 @@ const Dashboard = () => {
             <div className="Dashboard-cards row no-gutters">
                 {
                     allThanks && allThanks.map((thanks, index) => {
-                        console.log(thanks);
-                        return <ThankYouCard key={index} recipient={thanks.recipient} message={thanks.message} image={thanks.image ? thanks.image : thanksImg} id={thanks.id}/>
+                        return <ThankYouCard key={index} recipient={thanks.recipient} message={thanks.message} image={imagesMap[thanks.id] ? imagesMap[thanks.id] : thanksImg} id={thanks.id}/>
                     })
                 }
             </div>
